@@ -1,246 +1,266 @@
 <html lang="id">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>BRizz✨</title>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Libre+Baskerville:wght@700&family=Inter:wght@500;700&display=swap" rel="stylesheet">
+  <title>MSME Finance Web-Based</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
   <style>
     :root {
       --pink-primary: #ff69b4;
-      --pink-dark: #c2185b;
-      --pink-light: #ffd6e8;
+      --pink-dark: #cc0066;
+      --pink-light: #ffc0cb;
       --pink-bg: #fff0f5;
-      --pink-shadow: rgba(255, 105, 180, 0.25);
-      --text-dark: #2c001e;
-      --white: #fff;
+      --pink-shadow: rgba(255, 105, 180, 0.2);
     }
-
-    * {
+    
+    body {
       margin: 0;
       padding: 0;
-      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+      background-color: #fff5f9;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
-
-    body {
-      font-family: 'Inter', sans-serif;
-      background: linear-gradient(to right bottom, #ffe8f4, #fff0f5);
-      color: var(--text-dark);
-      transition: all 0.5s ease-in-out;
+    
+    .container {
+      background: white;
+      border-radius: 16px;
+      box-shadow: 0 10px 30px var(--pink-shadow);
+      width: 90%;
+      max-width: 800px;
+      padding: 40px;
+      border: 1px solid rgba(255, 192, 203, 0.3);
     }
-
-    header {
-      padding: 100px 30px 80px;
+    
+    h1 {
       text-align: center;
-      background: linear-gradient(135deg, #fff0f5 30%, #ffd6e8);
-      box-shadow: inset 0 0 80px rgba(255, 182, 193, 0.3);
-      animation: fadeIn 1s ease-in-out;
-    }
-
-    @keyframes fadeIn {
-      0% { opacity: 0; transform: translateY(-30px); }
-      100% { opacity: 1; transform: translateY(0); }
-    }
-
-    header h1 {
-      font-family: 'Libre Baskerville', serif;
-      font-size: 4rem;
-      font-weight: 700;
+      font-size: 2.5rem;
+      margin-bottom: 25px;
       color: var(--pink-dark);
+      font-family: 'Playfair Display', serif;
+      position: relative;
+    }
+    
+    h1:after {
+      content: "";
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 3px;
+      background: var(--pink-primary);
+      border-radius: 2px;
+    }
+    
+    .form-group {
       margin-bottom: 20px;
     }
-
-    header p {
-      font-family: 'Inter', sans-serif;
-      font-size: 1.25rem;
-      color: #5a0b3f;
-      max-width: 700px;
-      margin: 0 auto;
-    }
-
-    .main {
-      background: var(--white);
-      margin: -60px auto 60px;
-      border-radius: 30px;
-      padding: 60px;
-      max-width: 960px;
-      width: 90%;
-      box-shadow: 0 20px 50px var(--pink-shadow);
-      border: 2px solid var(--pink-light);
-    }
-
-    h2 {
-      font-family: 'Libre Baskerville', serif;
-      font-size: 2.2rem;
-      text-align: center;
-      color: var(--pink-dark);
-      margin-bottom: 40px;
-    }
-
-    .form-group {
-      margin-bottom: 24px;
-    }
-
+    
     label {
-      font-weight: 700;
-      font-size: 1.05rem;
+      font-weight: 600;
       display: block;
-      margin-bottom: 10px;
+      margin-bottom: 8px;
       color: var(--pink-dark);
     }
-
+    
     input, select {
       width: 100%;
-      padding: 14px 20px;
-      border-radius: 12px;
-      border: 1.8px solid var(--pink-light);
-      background-color: rgba(255, 245, 247, 0.9);
+      padding: 12px 16px;
+      border-radius: 8px;
+      border: 1px solid var(--pink-light);
+      background-color: rgba(255, 248, 250, 0.5);
       font-size: 1rem;
       color: #4d003b;
-      font-family: 'Inter', sans-serif;
+      transition: all 0.3s ease;
     }
-
+    
     input:focus, select:focus {
-      outline: none;
       border-color: var(--pink-primary);
-      box-shadow: 0 0 0 4px rgba(255, 105, 180, 0.15);
+      outline: none;
+      box-shadow: 0 0 0 3px rgba(255, 105, 180, 0.1);
     }
-
+    
     small {
-      color: #8a004a;
+      color: #99004d;
       font-size: 0.85rem;
-      opacity: 0.75;
+      opacity: 0.8;
+      display: block;
+      margin-top: 5px;
     }
-
+    
+    .tax-explanation {
+      background-color: var(--pink-bg);
+      padding: 12px;
+      border-radius: 8px;
+      margin-top: 10px;
+      font-size: 0.85rem;
+      border-left: 3px solid var(--pink-primary);
+    }
+    
     button {
       background: var(--pink-primary);
       border: none;
-      color: var(--white);
-      padding: 18px;
-      font-size: 1.15rem;
-      border-radius: 14px;
+      color: white;
+      padding: 14px;
+      font-size: 1rem;
+      border-radius: 8px;
       cursor: pointer;
+      margin-top: 20px;
+      display: block;
       width: 100%;
-      margin-top: 30px;
-      font-weight: 700;
-      font-family: 'Inter', sans-serif;
-      transition: background 0.3s, transform 0.2s;
+      font-weight: 600;
+      transition: background 0.3s;
     }
-
+    
     button:hover {
       background: var(--pink-dark);
-      transform: scale(1.02);
     }
-
+    
     .output {
-      margin-top: 50px;
+      margin-top: 30px;
       background: var(--pink-bg);
-      padding: 35px;
-      border-radius: 20px;
-      border: 1.5px solid rgba(255, 192, 203, 0.5);
+      padding: 20px;
+      border-radius: 12px;
+      border: 1px solid rgba(255, 192, 203, 0.5);
     }
-
+    
     .output h3 {
-      margin-bottom: 25px;
+      margin-bottom: 15px;
       color: var(--pink-dark);
-      font-size: 1.5rem;
-      font-family: 'Libre Baskerville', serif;
+      font-size: 1.3rem;
     }
-
+    
     .result-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 30px;
+      gap: 15px;
+      margin-top: 15px;
     }
-
+    
     .result-box {
       background: white;
-      padding: 24px;
-      border-radius: 16px;
-      border: 1.5px solid rgba(255, 192, 203, 0.4);
-      box-shadow: 0 10px 20px rgba(255, 182, 193, 0.2);
+      padding: 15px;
+      border-radius: 8px;
+      border: 1px solid rgba(255, 192, 203, 0.3);
     }
-
+    
     .result-box h4 {
-      margin-bottom: 14px;
+      margin: 0 0 10px 0;
       color: var(--pink-primary);
-      font-size: 1.1rem;
-      font-family: 'Inter', sans-serif;
+      font-size: 1rem;
+      border-bottom: 1px dashed var(--pink-light);
+      padding-bottom: 5px;
     }
-
-    .tax-info {
-      font-size: 0.9rem;
-      color: #666;
-      font-style: italic;
-      margin-top: 12px;
+    
+    .recommendation {
+      margin-top: 20px;
+      background: white;
+      padding: 15px;
+      border-radius: 8px;
+      border: 1px solid rgba(255, 192, 203, 0.3);
     }
-
-    @media (max-width: 768px) {
+    
+    .recommendation h4 {
+      color: var(--pink-dark);
+      margin-top: 0;
+    }
+    
+    .recommendation ul {
+      padding-left: 20px;
+    }
+    
+    .recommendation li {
+      margin-bottom: 8px;
+    }
+    
+    @media (max-width: 600px) {
       .result-grid {
         grid-template-columns: 1fr;
-      }
-
-      header h1 {
-        font-size: 2.6rem;
       }
     }
   </style>
 </head>
 <body>
-  <header>
-    <h1>BRizz✨</h1>
-    <p>MSME Finance Web-Based</p>
-  </header>
-
-  <section class="main">
-    <h2>Finance Simulator</h2>
+  <div class="container">
+    <h1>BRizz</h1>
 
     <div class="form-group">
-      <label for="jenisUsaha">Jenis Subjek Pajak</label>
-      <select id="jenisUsaha">
-        <option value="perorangan">Perorangan</option>
-        <option value="badan">Badan Usaha</option>
-        <option value="karyawan">Karyawan dengan Usaha Sampingan</option>
-      </select>
-      <small>Pilih status sesuai dengan bentuk usaha Anda</small>
-    </div>
-
-    <div class="form-group">
-      <label for="income">Penghasilan Bruto Bulanan</label>
+      <label for="income">Penghasilan Bulanan</label>
       <input type="text" id="income" placeholder="Contoh: 10.000.000">
-      <small>Total semua pemasukan kotor sebelum biaya</small>
+      <small>Total semua pemasukan tetap setiap bulan</small>
     </div>
 
     <div class="form-group">
-      <label for="fixed">Biaya Operasional</label>
+      <label for="fixed">Biaya Tetap</label>
       <input type="text" id="fixed" placeholder="Contoh: 2.000.000">
-      <small>Sewa, gaji pegawai, listrik, internet, dll</small>
+      <small>Biaya sewa, gaji pegawai, internet, dan listrik</small>
+    </div>
+
+    <div class="form-group">
+      <label for="cicilan">Cicilan Usaha</label>
+      <input type="text" id="cicilan" placeholder="Contoh: 1.500.000">
+      <small>Angsuran modal usaha: pinjaman bank, koperasi, dll</small>
     </div>
 
     <div class="form-group">
       <label for="laba">Target Laba Bersih</label>
       <input type="text" id="laba" placeholder="Contoh: 1.500.000">
-      <small>Keuntungan bersih yang ingin dicapai</small>
+      <small>Target keuntungan bersih yang ingin dicapai</small>
     </div>
 
-    <button onclick="hitung()">Hitung Pajak & Laba</button>
+    <div class="form-group">
+      <label for="darurat">Dana Darurat</label>
+      <input type="text" id="darurat" placeholder="Contoh: 1.000.000">
+      <small>Jumlah yang disisihkan untuk keadaan darurat</small>
+    </div>
+
+    <div class="form-group">
+      <label for="taxType">Jenis Subjek Pajak</label>
+      <select id="taxType">
+        <option value="umkm">UMKM (Usaha Mikro Kecil Menengah)</option>
+        <option value="karyawan">Karyawan dengan Usaha Sampingan</option>
+        <option value="perorangan">Perorangan (Freelancer/Pekerja Lepas)</option>
+      </select>
+      <div class="tax-explanation" id="taxExplanation">
+        <strong>UMKM:</strong> Wajib pajak dengan omset < Rp4,8M/tahun dikenakan pajak final 0,5%
+      </div>
+    </div>
+
+    <button onclick="hitung()">Hitung 📊</button>
 
     <div class="output" id="output" style="display:none;">
       <h3>Hasil Simulasi:</h3>
       <div class="result-grid">
         <div class="result-box">
-          <h4>Total Pengeluaran</h4>
+          <h4>Sebelum Pajak</h4>
           <div id="result-before-tax"></div>
         </div>
         <div class="result-box">
-          <h4>Pajak UMKM Sesuai Kategori</h4>
+          <h4>Setelah Pajak</h4>
           <div id="result-after-tax"></div>
-          <p class="tax-info" id="tax-note"></p>
         </div>
       </div>
+      
+      <div class="recommendation" id="recommendation">
+        <h4>Rekomendasi Pengembangan Usaha:</h4>
+        <div id="business-recommendation"></div>
+      </div>
     </div>
-  </section>
+  </div>
 
   <script>
+    // Penjelasan jenis pajak
+    document.getElementById('taxType').addEventListener('change', function() {
+      const explanations = {
+        umkm: "<strong>UMKM:</strong> Wajib pajak dengan omset < Rp4,8M/tahun dikenakan pajak final 0,5% dari omset (PP 23/2018)",
+        karyawan: "<strong>Karyawan dengan Usaha Sampingan:</strong> Pajak dihitung dari penghasilan usaha setelah dikurangi PTKP (Penghasilan Tidak Kena Pajak)",
+        perorangan: "<strong>Perorangan/Freelancer:</strong> Dikenakan tarif progresif 0-30% sesuai UU PPh (berlaku jika omset > Rp4,8M/tahun)"
+      };
+      document.getElementById('taxExplanation').innerHTML = explanations[this.value];
+    });
+
     function toAngka(str) {
       return parseFloat(str.replace(/\./g, '').replace(',', '.')) || 0;
     }
@@ -250,38 +270,102 @@
     }
 
     function hitung() {
-      const jenis = document.getElementById('jenisUsaha').value;
       const income = toAngka(document.getElementById('income').value);
-      const biaya = toAngka(document.getElementById('fixed').value);
+      const fixed = toAngka(document.getElementById('fixed').value);
+      const cicilan = toAngka(document.getElementById('cicilan').value);
       const laba = toAngka(document.getElementById('laba').value);
-      const totalBiaya = biaya + laba;
+      const darurat = toAngka(document.getElementById('darurat').value);
+      const taxType = document.getElementById('taxType').value;
+
+      // Perhitungan sebelum pajak
+      const totalBiaya = fixed + cicilan + laba + darurat;
       const sisa = income - totalBiaya;
+      
+      // Perhitungan pajak berdasarkan jenis
+      let pajak = 0;
+      let taxNote = "";
+      
+      if (taxType === "umkm") {
+        pajak = income * 0.005; // Pajak final 0.5% untuk UMKM
+        taxNote = "Pajak UMKM 0.5% dari omset";
+      } else if (taxType === "karyawan") {
+        // Asumsi PTKP 54 juta/tahun (4.5 juta/bulan)
+        const ptkp = 4500000;
+        const taxable = Math.max(0, income - ptkp);
+        pajak = taxable * 0.05; // Asumsi tarif 5% untuk lapisan pertama
+        taxNote = "Pajak 5% dari (penghasilan - PTKP)";
+      } else { // perorangan
+        // Asumsi tarif progresif lapisan pertama
+        pajak = income * 0.05; // 5% untuk lapisan pertama
+        taxNote = "Pajak progresif (asumsi tarif 5%)";
+      }
+      
+      const sisaSetelahPajak = sisa - pajak;
 
-      let tarif = 0.005;
-      let note = '*Tarif pajak final 0.5% dari penghasilan bruto (sesuai PP 23/2018).';
-
-      if (jenis === 'badan') {
-        tarif = 0.01;
-        note = '*Badan Usaha (CV/PT) dengan omzet < 4.8M: tarif 1% final sesuai regulasi lama.';
-      } else if (jenis === 'karyawan') {
-        tarif = 0.005;
-        note = '*Usaha sampingan dengan NPWP aktif tetap dapat tarif 0.5% (PP 23).';
+      // Hasil sebelum pajak
+      let rekomendasi = '';
+      if (sisa > 0) {
+        rekomendasi = `Keuangan sehat! Sisa: ${formatRupiah(sisa)}`;
+      } else if (sisa < 0) {
+        rekomendasi = `Perhatian! Defisit: ${formatRupiah(Math.abs(sisa))}`;
+      } else {
+        rekomendasi = `Break even (impas)`;
       }
 
-      const pajak = income * tarif;
-      const labaSetelahPajak = sisa - pajak;
+      // Hasil setelah pajak
+      let rekomendasiPajak = '';
+      if (sisaSetelahPajak > 0) {
+        rekomendasiPajak = `Sisa setelah pajak: ${formatRupiah(sisaSetelahPajak)}`;
+      } else if (sisaSetelahPajak < 0) {
+        rekomendasiPajak = `Defisit setelah pajak: ${formatRupiah(Math.abs(sisaSetelahPajak))}`;
+      } else {
+        rekomendasiPajak = `Break even setelah pajak`;
+      }
 
+      // Rekomendasi pengembangan usaha
+      let businessRecommendation = '';
+      if (sisaSetelahPajak > income * 0.3) {
+        businessRecommendation = `
+          <ul>
+            <li><strong>Ekspansi usaha:</strong> Pertimbangkan untuk membuka cabang baru atau menambah produk/jasa</li>
+            <li><strong>Investasi peralatan:</strong> Tingkatkan produktivitas dengan peralatan yang lebih modern</li>
+            <li><strong>Digital marketing:</strong> Alokasikan dana untuk iklan digital (Google Ads, Instagram Ads)</li>
+          </ul>
+        `;
+      } else if (sisaSetelahPajak > 0) {
+        businessRecommendation = `
+          <ul>
+            <li><strong>Optimalisasi biaya:</strong> Cari supplier dengan harga lebih kompetitif</li>
+            <li><strong>Pelatihan SDM:</strong> Tingkatkan keterampilan karyawan untuk efisiensi</li>
+            <li><strong>Diversifikasi produk:</strong> Tambahkan varian produk dengan modal minimal</li>
+          </ul>
+        `;
+      } else {
+        businessRecommendation = `
+          <ul>
+            <li><strong>Restrukturisasi utang:</strong> Negosiasikan ulang cicilan dengan bank/kreditor</li>
+            <li><strong>Fokus produk unggulan:</strong> Kurangi varian produk yang kurang menguntungkan</li>
+            <li><strong>Bantuan pemerintah:</strong> Manfaatkan program KUR atau bantuan UMKM</li>
+          </ul>
+        `;
+      }
+
+      // Tampilkan hasil
       document.getElementById('output').style.display = 'block';
       document.getElementById('result-before-tax').innerHTML = `
-        <p><b>Penghasilan Bruto:</b> ${formatRupiah(income)}</p>
-        <p><b>Total Biaya + Laba Target:</b> ${formatRupiah(totalBiaya)}</p>
-        <p><b>Sisa Usaha:</b> ${formatRupiah(sisa)}</p>
+        <p><b>Total Pengeluaran:</b> ${formatRupiah(totalBiaya)}</p>
+        <p><b>Sisa Penghasilan:</b> ${formatRupiah(sisa)}</p>
+        <p><b>Status:</b> ${rekomendasi}</p>
       `;
+      
       document.getElementById('result-after-tax').innerHTML = `
-        <p><b>Pajak:</b> ${formatRupiah(pajak)}</p>
-        <p><b>Laba Setelah Pajak:</b> ${formatRupiah(labaSetelahPajak)}</p>
+        <p><b>Jenis Pajak:</b> ${taxNote}</p>
+        <p><b>Beban Pajak:</b> ${formatRupiah(pajak)}</p>
+        <p><b>Sisa Penghasilan:</b> ${formatRupiah(sisaSetelahPajak)}</p>
+        <p><b>Status:</b> ${rekomendasiPajak}</p>
       `;
-      document.getElementById('tax-note').textContent = note;
+      
+      document.getElementById('business-recommendation').innerHTML = businessRecommendation;
     }
   </script>
 </body>
