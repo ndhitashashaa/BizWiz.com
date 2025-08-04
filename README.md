@@ -1,7 +1,3 @@
-<!-- Updated and Enhanced Version of BizWis - Simulasi Inflasi & Pajak UMKM -->
-<!-- Focused on Clarity, Simplicity, and Educative UI for All Ages -->
-
-<!-- Only show changes made in script section for brevity -->
 <script>
   function hitung() {
     const penghasilan = parseFloat(document.getElementById("penghasilan").value);
