@@ -1,122 +1,127 @@
 <html lang="id">
 <head>
   <meta charset="UTF-8">
-  <title>BizWis - Simulasi Keuangan UMKM</title>
+  <title>BizWis - Simulasi UMKM</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
   <style>
     :root {
-      --primary-pink: #ff69b4;
-      --light-pink: #ffe4f1;
-      --medium-pink: #ffb6c1;
-      --dark-pink: #d63384;
-      --accent-pink: #ff1493;
-      --text-dark: #5d0064;
-      --text-light: #a0528d;
-      --success: #4caf50;
-      --danger: #f44336;
+      --primary: #ff69b4;
+      --light-bg: #fff7fb;
+      --accent: #d63384;
+      --text: #3b2c35;
+      --gray: #999;
+      --success: #28a745;
+      --danger: #dc3545;
     }
 
     * {
+      box-sizing: border-box;
       margin: 0;
       padding: 0;
-      box-sizing: border-box;
     }
 
     body {
-      font-family: 'Poppins', sans-serif;
-      background: linear-gradient(135deg, #fff0f5, #ffe4f1, #ffd1e3);
-      min-height: 100vh;
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(135deg, #fff0f5, #ffe4f1);
+      color: var(--text);
+      padding: 40px 16px;
       display: flex;
       justify-content: center;
-      align-items: center;
-      padding: 20px;
-      color: var(--text-dark);
+      align-items: flex-start;
     }
 
     .container {
+      background: white;
+      max-width: 850px;
       width: 100%;
-      max-width: 800px;
-      background: #fff;
-      border-radius: 20px;
-      padding: 30px;
-      box-shadow: 0 10px 30px rgba(214, 51, 132, 0.2);
-      border: 1px solid var(--light-pink);
+      padding: 32px;
+      border-radius: 16px;
+      box-shadow: 0 15px 40px rgba(214, 51, 132, 0.12);
     }
 
     h1 {
+      font-family: 'Poppins', sans-serif;
       text-align: center;
-      color: var(--dark-pink);
-      margin-bottom: 20px;
       font-size: 2rem;
+      font-weight: 700;
+      color: var(--accent);
+      margin-bottom: 24px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
     }
 
     .form-group {
-      margin-bottom: 20px;
+      display: flex;
+      flex-direction: column;
     }
 
     label {
       font-weight: 600;
+      font-size: 0.95rem;
       margin-bottom: 6px;
-      display: block;
     }
 
-    input {
-      width: 100%;
+    input[type="text"],
+    input[type="number"] {
       padding: 12px 16px;
-      border-radius: 12px;
-      border: 2px solid var(--light-pink);
+      border: 1.5px solid #ffd6e9;
+      border-radius: 10px;
       font-size: 1rem;
+      transition: all 0.2s ease;
     }
 
     input:focus {
-      border-color: var(--primary-pink);
       outline: none;
-      box-shadow: 0 0 0 2px rgba(255, 105, 180, 0.2);
+      border-color: var(--primary);
+      box-shadow: 0 0 0 2px rgba(255, 105, 180, 0.15);
     }
 
     small {
-      color: var(--text-light);
-      display: block;
+      font-size: 0.82rem;
+      color: var(--gray);
       margin-top: 4px;
-      font-size: 0.85rem;
-      font-style: italic;
     }
 
     button {
-      background: linear-gradient(135deg, var(--primary-pink), var(--dark-pink));
-      color: #fff;
+      margin-top: 30px;
+      width: 100%;
+      background: var(--primary);
+      color: white;
       border: none;
-      border-radius: 30px;
-      padding: 14px 30px;
+      padding: 14px;
+      border-radius: 50px;
       font-weight: 600;
       font-size: 1rem;
       cursor: pointer;
-      width: 100%;
-      margin-top: 20px;
+      transition: background 0.3s ease;
     }
 
     button:hover {
-      box-shadow: 0 6px 16px rgba(255, 105, 180, 0.3);
+      background: var(--accent);
     }
 
     .hasil {
-      margin-top: 30px;
-      background: #fff0f8;
-      padding: 20px;
-      border-radius: 15px;
-      border: 1px solid var(--light-pink);
+      margin-top: 40px;
+      background: var(--light-bg);
+      padding: 24px;
+      border-radius: 12px;
+      border: 1px solid #ffd6e9;
+      box-shadow: 0 10px 20px rgba(214, 51, 132, 0.08);
     }
 
     .hasil h3 {
-      color: var(--dark-pink);
-      margin-bottom: 15px;
+      margin-bottom: 20px;
+      color: var(--accent);
       font-size: 1.3rem;
     }
 
     .hasil p {
-      margin: 8px 0;
+      margin-bottom: 8px;
       font-size: 0.95rem;
     }
 
@@ -129,52 +134,55 @@
       color: var(--danger);
       font-weight: bold;
     }
+
+    @media (max-width: 768px) {
+      .grid {
+        grid-template-columns: 1fr;
+      }
+    }
   </style>
 </head>
 <body>
   <div class="container">
-    <h1><i class="fas fa-store"></i> BizWis - Simulasi UMKM</h1>
-
-    <div class="form-group">
-      <label for="penghasilan">Penghasilan Bulanan (Rp)</label>
-      <input type="text" id="penghasilan" placeholder="contoh: 10.000.000">
-      <small>Uang yang kamu terima dari hasil jualan setiap bulan</small>
+    <h1>BizWis - Simulasi UMKM</h1>
+    
+    <div class="grid">
+      <div class="form-group">
+        <label for="penghasilan">Penghasilan Bulanan (Rp)</label>
+        <input type="text" id="penghasilan" placeholder="Contoh: 10.000.000">
+        <small>Pendapatan total dari usaha setiap bulan</small>
+      </div>
+      <div class="form-group">
+        <label for="biaya">Biaya Tetap (Rp)</label>
+        <input type="text" id="biaya" placeholder="Contoh: 3.000.000">
+        <small>Sewa, listrik, bahan baku, langganan dll</small>
+      </div>
+      <div class="form-group">
+        <label for="gaji">Gaji Pegawai (Rp)</label>
+        <input type="text" id="gaji" placeholder="Contoh: 1.500.000">
+        <small>Total gaji bulanan karyawan</small>
+      </div>
+      <div class="form-group">
+        <label for="cicilan">Cicilan Usaha (Rp)</label>
+        <input type="text" id="cicilan" placeholder="Contoh: 500.000">
+        <small>Cicilan alat, kendaraan, pinjaman dll</small>
+      </div>
+      <div class="form-group">
+        <label for="target">Target Laba Bersih (%)</label>
+        <input type="number" id="target" placeholder="Contoh: 20">
+        <small>Misal ingin untung 20% dari penghasilan</small>
+      </div>
+      <div class="form-group">
+        <label for="darurat">Dana Darurat (%)</label>
+        <input type="number" id="darurat" placeholder="Contoh: 10">
+        <small>Tabungan cadangan dari keuntungan</small>
+      </div>
     </div>
 
-    <div class="form-group">
-      <label for="biaya">Biaya Tetap (Rp)</label>
-      <input type="text" id="biaya" placeholder="contoh: 3.000.000">
-      <small>Biaya rutin seperti sewa, listrik, air, kuota, bahan baku</small>
-    </div>
-
-    <div class="form-group">
-      <label for="gaji">Gaji Pegawai (Rp)</label>
-      <input type="text" id="gaji" placeholder="contoh: 1.500.000">
-      <small>Total gaji karyawan setiap bulan</small>
-    </div>
-
-    <div class="form-group">
-      <label for="cicilan">Cicilan Usaha (Rp)</label>
-      <input type="text" id="cicilan" placeholder="contoh: 500.000">
-      <small>Cicilan alat, motor, utang bank, dll</small>
-    </div>
-
-    <div class="form-group">
-      <label for="target">Target Laba Bersih (%)</label>
-      <input type="number" id="target" placeholder="contoh: 20">
-      <small>Berapa persen kamu ingin untung dari penghasilan (misal 20%)</small>
-    </div>
-
-    <div class="form-group">
-      <label for="darurat">Dana Darurat (%)</label>
-      <input type="number" id="darurat" placeholder="contoh: 10">
-      <small>Tabungan darurat dari laba bersih, misalnya 10%</small>
-    </div>
-
-    <button onclick="hitung()">Hitung Sekarang</button>
+    <button onclick="hitung()">Hitung Simulasi</button>
 
     <div class="hasil" id="output">
-      <h3>Hasil Perhitungan Akan Muncul di Sini</h3>
+      <h3>Hasil perhitungan akan muncul di sini.</h3>
     </div>
   </div>
 
@@ -184,13 +192,13 @@
     }
 
     function parseRupiah(str) {
-      return parseInt(str.replaceAll('.', '').replace(',', '')) || 0;
+      return parseInt(str.replace(/\./g, '')) || 0;
     }
 
     document.querySelectorAll('input[type="text"]').forEach(input => {
-      input.addEventListener('input', function (e) {
-        let value = this.value.replace(/\./g, '').replace(/[^\d]/g, '');
-        this.value = formatRupiah(value);
+      input.addEventListener('input', function () {
+        const clean = this.value.replace(/\./g, '').replace(/[^\d]/g, '');
+        this.value = formatRupiah(clean);
       });
     });
 
@@ -211,25 +219,16 @@
       let hasil = `
         <h3>Hasil Perhitungan:</h3>
         <p><strong>Total Pengeluaran:</strong> Rp ${formatRupiah(totalPengeluaran)}</p>
-        <small>Jumlah seluruh pengeluaran rutin tiap bulan</small>
-
         <p><strong>Laba Kotor:</strong> Rp ${formatRupiah(labaKotor)}</p>
-        <small>Penghasilan dikurangi total pengeluaran</small>
-
         <p><strong>Dana Darurat:</strong> Rp ${formatRupiah(danaDarurat)}</p>
-        <small>Cadangan untuk keperluan mendadak</small>
-
         <p><strong>Laba Bersih:</strong> Rp ${formatRupiah(labaBersih)}</p>
-        <small>Uang keuntungan setelah sisihkan darurat</small>
-
         <p><strong>Target Laba:</strong> Rp ${formatRupiah(targetLaba)}</p>
-        <small>Laba minimal yang kamu harapkan</small>
       `;
 
       if (labaBersih >= targetLaba) {
-        hasil += `<p class="success">✅ Selamat! Laba kamu sudah sesuai target 💖</p>`;
+        hasil += `<p class="success">✅ Selamat! Kamu sudah mencapai target keuntungan 🎉</p>`;
       } else {
-        hasil += `<p class="danger">⚠️ Wah, belum sesuai target. Coba kurangi biaya atau tingkatkan penjualan!</p>`;
+        hasil += `<p class="danger">⚠️ Keuntungan belum sesuai target. Evaluasi pengeluaran atau naikkan penjualan.</p>`;
       }
 
       document.getElementById("output").innerHTML = hasil;
