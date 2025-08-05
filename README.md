@@ -4,7 +4,6 @@
   <title>MSME Finance Web-Based</title>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
   <style>
-    /* Gaya tetap seperti sebelumnya */
     :root {
       --pink-primary: #ff69b4;
       --pink-dark: #cc0066;
@@ -176,6 +175,19 @@
       margin-bottom: 8px;
     }
 
+    .ai-suggestion {
+      margin-top: 20px;
+      background: #fff;
+      padding: 15px;
+      border-left: 5px solid var(--pink-primary);
+      border-radius: 8px;
+    }
+
+    .ai-suggestion h4 {
+      margin-top: 0;
+      color: var(--pink-primary);
+    }
+
     @media (max-width: 600px) {
       .result-grid {
         grid-template-columns: 1fr;
@@ -187,26 +199,34 @@
   <div class="container">
     <h1>BRizz</h1>
 
-    <!-- Tambahan: Pilihan Mode Simulasi -->
-    <div class="form-group">
-      <label for="mode">Pilih Mode Simulasi</label>
-      <select id="mode">
-        <option value="tax">Hitung Pajak UMKM</option>
-        <option value="modal">Hitung Modal Pengembangan</option>
-        <option value="full">Analisis Lengkap (Pajak + Modal)</option>
-      </select>
-      <small>Pilih jenis simulasi yang ingin Anda lakukan</small>
+    <!-- Elemen AI yang ditambahkan -->
+    <div class="ai-suggestion">
+      <h4>🎯 Rekomendasi AI Cerdas untuk Strategi Usaha:</h4>
+      <p id="ai-output">Silakan isi data dan klik tombol "Hitung 📊" untuk mendapatkan saran strategi dari AI kami 🤖</p>
     </div>
-
-    <!-- Form input tetap seperti sebelumnya -->
-    <!-- (Penghasilan, Biaya, Cicilan, Laba, Darurat, Jenis Pajak) -->
-
-    <!-- Tombol dan hasil output akan disesuaikan dengan mode -->
-    <!-- JS perlu diperbarui untuk merespons pilihan mode -->
   </div>
 
   <script>
-    // Script JavaScript akan diperbarui nanti
+    function rekomendasiAI(sisa, income, fixed) {
+      let strategi = [];
+      const margin = sisa / income;
+
+      if (margin >= 0.3) {
+        strategi.push("✅ Usahamu sangat sehat, pertimbangkan buka cabang atau diversifikasi produk!");
+      } else if (margin >= 0.1) {
+        strategi.push("📈 Pertahankan performa. Kamu bisa mulai alokasi dana untuk digital marketing atau upgrade alat kerja.");
+      } else if (sisa > 0 && margin < 0.1) {
+        strategi.push("⚠️ Keuntungan tipis, evaluasi biaya tetapmu. Bisa jadi kamu perlu negosiasi ulang sewa atau gaji karyawan.");
+      } else {
+        strategi.push("❌ Usahamu mengalami defisit. Coba kurangi beban cicilan atau cari cara menaikkan harga jual produk.");
+      }
+
+      if (fixed > income * 0.5) {
+        strategi.push("💸 Biaya tetap terlalu besar dibandingkan pendapatan. Pertimbangkan strategi outsourcing atau efisiensi operasional.");
+      }
+
+      document.getElementById('ai-output').innerHTML = strategi.map(s => `• ${s}`).join('<br>');
+    }
   </script>
 </body>
 </html>
